@@ -1,23 +1,35 @@
 # Production Style Reverse Proxy
 
 ## Overview
-This project simulates a production-style reverse proxy environment using Linux virtual machines. It demonstrates how a proxy server securely exposes an internal application server while separating roles across different systems.
+This project simulates a production-style reverse proxy architecture using Linux virtual machines.
+
+It demonstrates how an internal application is securely exposed through a proxy layer, replicating real-world infrastructure used in DevOps and Site Reliability Engineering environments.
+
+---
 
 ## Objectives
-- Build a reverse proxy architecture using Linux
-- Publish an internal web application through Nginx
-- Practice SSH administration and network validation
-- Simulate real-world infrastructure concepts used in DevOps and SRE environments
+- Build a multi-node Linux environment
+- Configure a reverse proxy using Nginx
+- Publish an internal backend application securely
+- Practice Linux networking and SSH access
+- Validate connectivity between segmented systems
+
+---
 
 ## Architecture
-The environment contains three Linux virtual machines:
 
-- **client-vm**: used to test access to the application
-- **proxy-vm**: runs Nginx as the reverse proxy
-- **app-vm**: runs the backend Python application
+This project uses three virtual machines:
 
-Traffic flow:
-Client → Proxy (Nginx) → App Server (Python app)
+| VM        | Role              | IP Address        |
+|----------|------------------|------------------|
+| client-vm | Client machine    | 192.168.56.10    |
+| proxy-vm  | Reverse proxy     | 192.168.56.20    |
+| app-vm    | Backend server    | 192.168.56.30    |
+
+### Traffic Flow
+Client → Proxy (Nginx) → App Server
+
+---
 
 ## Technologies Used
 - Ubuntu Server
@@ -25,15 +37,15 @@ Client → Proxy (Nginx) → App Server (Python app)
 - Python 3
 - SSH
 - Netplan
-- Linux systemd
+- systemd
 - VirtualBox
 
-## Project Structure
+---
 
+## Project Structure
+```text
 production-style-reverse-proxy/
-├── README.md
 ├── docs/
-├── screenshots/
 ├── configs/
-├── scripts/
-└── app/
+├── app/
+├── screenshots/
