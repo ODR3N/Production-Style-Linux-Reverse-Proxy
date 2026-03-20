@@ -1,44 +1,39 @@
+# Production Style Reverse Proxy
+
 ## Overview
-This is a project I built to demonstrate Linux and networking knowledge in a DevOps-aligned environment.
+This project simulates a production-style reverse proxy environment using Linux virtual machines. It demonstrates how a proxy server securely exposes an internal application server while separating roles across different systems.
 
-The project simulates a production-style traffic flow using multiple Ubuntu Server virtual machines:
-
-- Client VM
-- Proxy VM
-- App VM
-
-The project covers:
-- Linux user and permission management
-- static network configuration
-- SSH key-based authentication
-- process and service management with systemd
-- reverse proxying with Nginx
-- TLS termination
-- rate limiting
-- firewall configuration with UFW
-- logging and troubleshooting
-
----
+## Objectives
+- Build a reverse proxy architecture using Linux
+- Publish an internal web application through Nginx
+- Practice SSH administration and network validation
+- Simulate real-world infrastructure concepts used in DevOps and SRE environments
 
 ## Architecture
+The environment contains three Linux virtual machines:
 
-[client-vm] ---> [proxy-vm: Nginx] ---> [app-vm: Python app]
+- **client-vm**: used to test access to the application
+- **proxy-vm**: runs Nginx as the reverse proxy
+- **app-vm**: runs the backend Python application
 
-## Traffic Flow
-
--Client VM sends a request to Proxy VM
--Proxy VM receives traffic on port 80/443
--Nginx forwards the request to the backend app on port 8080
--App VM responds
--Logs are generated on both proxy and backend
+Traffic flow:
+Client → Proxy (Nginx) → App Server (Python app)
 
 ## Technologies Used
+- Ubuntu Server
+- Nginx
+- Python 3
+- SSH
+- Netplan
+- Linux systemd
+- VirtualBox
 
--Ubuntu Server
--Linux CLI
--Python 3
--systemd
--Nginx
--OpenSSL
--UFW
--SSH
+## Project Structure
+
+production-style-reverse-proxy/
+├── README.md
+├── docs/
+├── screenshots/
+├── configs/
+├── scripts/
+└── app/
