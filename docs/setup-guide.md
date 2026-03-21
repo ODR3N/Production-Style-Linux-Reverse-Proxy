@@ -415,5 +415,3 @@ A working multi-node Linux system that simulates:
 * traffic routing
 * secure exposure
 * operational observability
-
-This project demonstrates real DevOps and SRE foundational skills.
